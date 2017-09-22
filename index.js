@@ -1,6 +1,6 @@
 //58102010805
 
-
+/*
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -57,5 +57,19 @@ app.post('/calculator/rest/powery', function(req, res, next) {
 });
 
 app.listen(3000,function(){
-    console.log('Starting node on port');
+    console.log('Starting node on port 3000');
 });
+*/
+import express from './config/express';
+
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.PORT = process.env.PORT || 3000;
+
+var app = express();
+
+app.listen(process.env.PORT, () => {
+       console.log('Starting node.js on port ' + process.env.PORT);
+});
+
+module.exports = app;
